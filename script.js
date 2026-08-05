@@ -126,7 +126,7 @@ function getBaseLeadership(totalLeadership, s8Multiplier){
         s8Multiplier +
         SETTINGS.TIER_MULTIPLIER +
         (SETTINGS.TIER_MULTIPLIER * s8Multiplier)+
-        (SETTINGS.TIER_MULTIPLIER * 2);
+        Math.pow(SETTINGS.TIER_MULTIPLIER, 2);
 
     return totalLeadership / totalWeight;
 
@@ -155,7 +155,7 @@ function calculateTierLeadership(base, s8Multiplier){
         
         G7: Math.floor(
 			base *
-			(SETTINGS.TIER_MULTIPLIER * 2)
+			Math.pow(SETTINGS.TIER_MULTIPLIER, 2)
 		)
 
     };
