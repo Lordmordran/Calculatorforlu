@@ -8,7 +8,7 @@
 
 const SETTINGS = {
 
-    DEFAULT_S9_MULTIPLIER: 1.008,
+    DEFAULT_S8_MULTIPLIER: 1.008,
 
     TIER_MULTIPLIER: 1.81,
 
@@ -43,7 +43,7 @@ const leadershipInput =
     document.getElementById("leadership");
 
 const multiplierInput =
-    document.getElementById("s9Multiplier");
+    document.getElementById("s8Multiplier");
 
 const calculateButton =
     document.getElementById("calculateButton");
@@ -63,7 +63,7 @@ const results =
 function loadSettings(){
 
     const saved =
-        localStorage.getItem("s9Multiplier");
+        localStorage.getItem("s8Multiplier");
 
     if(saved){
 
@@ -72,7 +72,7 @@ function loadSettings(){
     }else{
 
         multiplierInput.value =
-            SETTINGS.DEFAULT_S9_MULTIPLIER;
+            SETTINGS.DEFAULT_S8_MULTIPLIER;
 
     }
 
@@ -85,7 +85,7 @@ function saveSettings(){
 
     localStorage.setItem(
 
-        "s9Multiplier",
+        "s8Multiplier",
 
         multiplierInput.value
 
@@ -101,10 +101,10 @@ function saveSettings(){
 function resetSettings(){
 
     multiplierInput.value =
-        SETTINGS.DEFAULT_S9_MULTIPLIER;
+        SETTINGS.DEFAULT_S8_MULTIPLIER;
 
     localStorage.removeItem(
-        "s9Multiplier"
+        "s8Multiplier"
     );
 
     alert("Multiplier reset.");
@@ -119,13 +119,14 @@ function resetSettings(){
 
 // ---------- CALCULATE BASE ----------
 
-function getBaseLeadership(totalLeadership, s9Multiplier){
+function getBaseLeadership(totalLeadership, s8Multiplier){
 
     const totalWeight =
         1 +
-        s9Multiplier +
+        s8Multiplier +
         SETTINGS.TIER_MULTIPLIER +
-        (SETTINGS.TIER_MULTIPLIER * s9Multiplier);
+        (SETTINGS.TIER_MULTIPLIER * s8Multiplier)+
+        (SETTINGS.TIER_MULTIPLIER * 2);
 
     return totalLeadership / totalWeight;
 
@@ -134,16 +135,12 @@ function getBaseLeadership(totalLeadership, s9Multiplier){
 
 // ---------- CALCULATE TIERS ----------
 
-function calculateTierLeadership(base, s9Multiplier){
+function calculateTierLeadership(base, s8Multiplier){
 
     return {
 
         G9: Math.floor(base),
 
-        S9: Math.floor(
-            base *
-            s9Multiplier
-        ),
 
         G8: Math.floor(
             base *
@@ -153,8 +150,13 @@ function calculateTierLeadership(base, s9Multiplier){
         S8: Math.floor(
             base *
             SETTINGS.TIER_MULTIPLIER *
-            s9Multiplier
-        )
+            s8Multiplier
+        ),
+        
+        G7: Math.floor(
+			base *
+			(SETTINGS.TIER_MULTIPLIER * 2)
+		)
 
     };
 
@@ -214,7 +216,7 @@ function calculate(){
             leadershipInput.value
         );
 
-    const s9Multiplier =
+    const s8Multiplier =
         Number(
             multiplierInput.value
         );
@@ -230,24 +232,24 @@ function calculate(){
     const base =
         getBaseLeadership(
             totalLeadership,
-            s9Multiplier
+            s8Multiplier
         );
 
     const tiers =
         calculateTierLeadership(
             base,
-            s9Multiplier
+            s8Multiplier
         );
         
     const stacks = {
 
 		G9: splitTier(tiers.G9),
 
-		S9: splitTier(tiers.S9),
-
 		G8: splitTier(tiers.G8),
 
-		S8: splitTier(tiers.S8)
+		S8: splitTier(tiers.S8),
+		
+		G7: splitTier(tiers.G7)
 
 		};
 		
