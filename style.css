@@ -1,1 +1,424 @@
+/* =====================================
+   Total Battle Calculator V4
+   Dark Theme UI
+===================================== */
+
+
+* {
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+	font-family:
+		'Rajdhani',
+		Arial,
+		sans-serif;
+
+}
+
+
+body {
+
+    min-height:100vh;
+
+    background:
+
+        linear-gradient(
+            rgba(8,12,18,.82),
+            rgba(8,12,18,.82)
+        ),
+
+        url("background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px 20px;
+
+}
+
+
+
+.app {
+
+    width:100%;
+
+    max-width:900px;
+
+}
+
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+
+.header {
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+
+.header h1 {
+
+    font-family:
+        'Cinzel',
+        serif;
+
+    font-size:46px;
+
+    letter-spacing:3px;
+
+}
+
+.header h2 {
+
+    font-weight:normal;
+
+    color:#aeb9d1;
+
+    margin-top:8px;
+
+}
+
+
+.version {
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    background:#202938;
+
+    color:#7fb3ff;
+
+    font-size:14px;
+
+}
+
+
+
+/* =====================================
+   INPUT CARD
+===================================== */
+
+
+.card {
+
+    background:#151b26;
+
+    border:1px solid #293447;
+
+    border-radius:16px;
+
+    padding:30px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+
+}
+
+
+
+.input-group {
+
+    margin-bottom:20px;
+
+}
+
+
+
+label {
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#c8d2e8;
+
+    font-weight:bold;
+
+}
+
+
+
+input {
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:20px;
+
+    border-radius:10px;
+
+    border:none;
+
+    outline:none;
+
+    background:#0d1118;
+
+    color:white;
+
+    border:1px solid #34435c;
+
+}
+
+
+
+input:focus {
+
+    border-color:#4da3ff;
+
+    box-shadow:
+        0 0 10px rgba(77,163,255,.4);
+
+}
+
+
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+
+.buttons {
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+button {
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    background:#3478f6;
+
+    color:white;
+
+    transition:.2s;
+
+}
+
+
+
+button:hover {
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.15);
+
+}
+
+
+
+button:active {
+
+    transform:translateY(1px);
+
+}
+
+
+
+/* =====================================
+   RESULTS TABLE
+===================================== */
+
+
+
+#results{
+
+    margin-top:30px;
+
+}
+
+
+#results table {
+
+    width:100%;
+
+    table-layout:fixed;
+
+    border-collapse:separate;
+
+    border-spacing:0;
+
+    background:#151b26;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+
+}
+
+
+
+#results th {
+
+    background:#202938;
+
+    padding:18px 12px;
+
+    color:#8fc1ff;
+
+    font-size:16px;
+
+}
+
+
+
+#results td {
+
+    padding:18px 12px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    border-bottom:
+        1px solid #293447;
+
+}
+
+
+
+#results th:first-child,
+#results td:first-child {
+
+    width:12%;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-weight:bold;
+
+}
+
+
+
+#results th:nth-child(2),
+#results td:nth-child(2) {
+
+    width:22%;
+
+}
+
+
+
+#results th:nth-child(n+3),
+#results td:nth-child(n+3) {
+
+    width:16.5%;
+
+}
+
+
+
+#results tr:last-child td {
+
+    border-bottom:none;
+
+}
+
+
+
+#results tr:hover {
+
+    background:#1e2737;
+
+}
+
+.temp-logo {
+
+    text-align:center;
+
+    font-size:80px;
+
+    margin-bottom:10px;
+
+    filter:
+        drop-shadow(
+            0 0 12px rgba(77,163,255,.6)
+        );
+
+}
+
+.logo-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
+}
+
+.logo{
+
+    width:180px;
+
+    max-width:80%;
+
+    height:auto;
+
+    filter:
+        drop-shadow(0 0 20px rgba(0,150,255,.65));
+
+    transition:.25s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.03);
+
+}
 
