@@ -293,7 +293,6 @@ results.innerHTML = `
 
 <th>Tier</th>
 
-<th>Leadership</th>
 
 <th>Spearman</th>
 
@@ -305,13 +304,6 @@ results.innerHTML = `
 
 </tr>
 
-${Object.entries(stacks).map(([tier,data])=>`
-
-<tr>
-
-<td>${tier}</td>
-
-<td>${data.leadership.toLocaleString()}</td>
 
 <td>${data.spear.toLocaleString()}</td>
 
